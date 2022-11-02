@@ -17,6 +17,7 @@
             --purple: #6A66CE;
             --red: #df465f;
         }
+
         body, html {
             font-family: Arial, sans-serif;
             background: var(--background);
@@ -25,9 +26,10 @@
             margin: 0;
             padding: 0;
         }
+
         th, td {
             padding: 0.4rem;
-            color:var(--white-gray);
+            color: var(--white-gray);
         }
 
         .add-option-container {
@@ -72,7 +74,8 @@
             box-shadow: 0.250rem 0.250rem 0.250rem rgba(0, 0, 0, 0.25);
             cursor: pointer;
         }
-        .button-delete{
+
+        .button-delete {
             height: 1.5rem;
             width: 1.5rem;
             border-radius: 100%;
@@ -87,6 +90,7 @@
             box-shadow: 0.250rem 0.250rem 0.250rem rgba(0, 0, 0, 0.25);
             cursor: pointer;
         }
+
         .button-add:hover, .button-spin:hover, .button-delete:hover {
             transform: scale(1.05);
             opacity: 1;
@@ -115,7 +119,7 @@
     <table id="tableOptions">
     </table>
 </section>
-<script>
+<script defer>
     document.getElementById('btnSpin').addEventListener('click', spin);
     document.getElementById('btnAddOption').addEventListener('click', addOption);
     let canvas = document.getElementById("canvas");
@@ -167,7 +171,7 @@
             let row = tableOptions.insertRow(-1);
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
-            cell1.innerHTML = (index+1) +'&nbsp;&nbsp;&nbsp;'+'<span contenteditable="true" id="span' + index + '" onmouseleave="editOption(' + index + ')">' + options[index] + '</span>';
+            cell1.innerHTML = (index + 1) + '&nbsp;&nbsp;&nbsp;' + '<span contenteditable="true" id="span' + index + '" onmouseleave="editOption(' + index + ')">' + options[index] + '</span>';
             cell2.innerHTML = '<button class="button-delete" type="button" onclick="removeOption(' + index + ')">&times;</button>';
         }
     }
@@ -284,11 +288,13 @@
         ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
         ctx.restore();
     }
+
     function easeOut(t, b, c, d) {
         let ts = (t /= d) * t;
         let tc = ts * t;
         return b + c * (tc + -3 * ts + 3 * t);
     }
+
     drawRouletteWheel();
 </script>
 </body>
