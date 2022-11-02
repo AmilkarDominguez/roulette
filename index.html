@@ -140,6 +140,7 @@
 
     function readOption() {
         options = JSON.parse(localStorage.getItem('options'));
+        if (!options) options = [];
         drawTableOption();
     }
 
