@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ruleta-gdg.iml" filepath="$PROJECT_DIR$/.idea/ruleta-gdg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/roulette.iml" filepath="$PROJECT_DIR$/.idea/roulette.iml" />
     </modules>
   </component>
 </project>
