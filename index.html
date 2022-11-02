@@ -135,6 +135,7 @@
     let spinTimeTotal = 0;
     let ctx;
 
+    drawRouletteWheel();
     readOption();
 
     function readOption() {
@@ -164,15 +165,16 @@
         storeOptions();
     }
 
-
     function drawTableOption() {
-        tableOptions.innerHTML = '';
-        for (let index = 0; index < options.length; index++) {
-            let row = tableOptions.insertRow(-1);
-            let cell1 = row.insertCell(0);
-            let cell2 = row.insertCell(1);
-            cell1.innerHTML = (index + 1) + '&nbsp;&nbsp;&nbsp;' + '<span contenteditable="true" id="span' + index + '" onmouseleave="editOption(' + index + ')">' + options[index] + '</span>';
-            cell2.innerHTML = '<button class="button-delete" type="button" onclick="removeOption(' + index + ')">&times;</button>';
+        if (options){
+            tableOptions.innerHTML = '';
+            for (let index = 0; index < options.length; index++) {
+                let row = tableOptions.insertRow(-1);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                cell1.innerHTML = (index + 1) + '&nbsp;&nbsp;&nbsp;' + '<span contenteditable="true" id="span' + index + '" onmouseleave="editOption(' + index + ')">' + options[index] + '</span>';
+                cell2.innerHTML = '<button class="button-delete" type="button" onclick="removeOption(' + index + ')">&times;</button>';
+            }
         }
     }
 
@@ -206,7 +208,7 @@
     }
 
     function drawRouletteWheel() {
-        if (canvas.getContext) {
+        if (canvas.getContext && options) {
             let outsideRadius = 200;
             let textRadius = 120;
             let insideRadius = 125 / 2;
@@ -295,7 +297,6 @@
         return b + c * (tc + -3 * ts + 3 * t);
     }
 
-    drawRouletteWheel();
 </script>
 </body>
 
